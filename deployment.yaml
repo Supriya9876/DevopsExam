@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaimage-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javaimage  
+  template:
+    metadata:
+      labels:
+        app: javaimage   
+    spec:
+      containers:
+        - name: javaimage-container
+          image: sb346/javatesti:latest
+          ports:
+            - containerPort: 8080
